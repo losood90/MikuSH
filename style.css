@@ -35,7 +35,6 @@ header {
 .shop-name {
     font-size: 20px;
     margin-left: 15px;
-
 }
 
 .login-button {
@@ -49,27 +48,31 @@ header {
     text-decoration: none;
     color: white;
     font-size: 18px;
+    padding: 6px 10px;
+    border-radius: 10px;
 }
 
-.header-login:hover{
-    background: rgba(255,255,255,0.2);
+.header-login:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 main {
     display: flex;
     flex-direction: row;
-    min-height: 100vh;   /* แทน height */
+    min-height: 100vh;
 }
 
-
+/* ✅ FIX: กัน aside บีบ/ยืดแปลก ๆ */
 aside {
     border-right: 1px solid white;
     background-color: #056469;
-    width: auto;
+
+    width: 260px;          /* เดิม auto ทำให้เพี้ยนได้ */
+    flex-shrink: 0;        /* กันโดนบีบ */
+
     padding-left: 15px;
     padding-top: 15px;
     box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.5);
-
 }
 
 .menu-side-bar {
@@ -95,11 +98,25 @@ aside {
     padding: 10px;
     background-color: #83dfe4;
     width: 100%;
+    min-width: 0; /* ✅ FIX: กันของใน main-content ล้น */
 }
+
+/* ✅ FIX: banner ไม่ fix 750px แล้ว (Desktop สวยขึ้น) */
 .banner {
     background-color: #333;
-    width: 750px;
-    height: 300px;
+    width: 100%;
+    max-width: 900px;   /* จำกัดขนาดใหญ่สุด */
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ถ้าใน banner มีรูป */
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 .search-goods {
@@ -108,19 +125,19 @@ aside {
     margin-left: 10px;
     margin-bottom: 10px;
     flex-direction: row;
-    align-items: center ;
+    align-items: center;
     gap: 7px;
 }
 
 .search-goods-box {
     padding: 15px;
     font-family: monospace;
-    background-color: #ebeaea; 
+    background-color: #ebeaea;
     width: 400px;
     height: 5px;
 }
 
-.represent-good{
+.represent-good {
     display: flex;
     margin-top: 20px;
     gap: 12px;
@@ -129,29 +146,25 @@ aside {
     overflow-y: hidden;
 
     padding: 10px;
-    padding-right: 120px; /* กันตัวสุดท้ายโดนตัด */
+    padding-right: 120px;
     scroll-behavior: smooth;
 
     scroll-snap-type: x mandatory;
 }
 
-.represent-good::after{
+.represent-good::after {
     content: "";
-    flex: 0 0 120px; /* เว้นที่ท้ายแถบ */
+    flex: 0 0 120px;
 }
-
-
 
 .represent-good::-webkit-scrollbar {
     height: 8px;
 }
 
 .represent-good::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
-
-
 
 .box {
     flex: 0 0 auto;
@@ -175,16 +188,14 @@ aside {
     border: 2px solid white;
 }
 
-
 .goods-picture {
     width: 100%;
     height: 160px;
     object-fit: cover;
     border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.7);
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
-
 
 .goods-name {
     margin-top: 10px;
@@ -193,42 +204,23 @@ aside {
     color: white;
 }
 
-
 .goods-price {
     margin-top: 6px;
     font-size: 18px;
     font-weight: 800;
     color: #004c5a;
-    background: rgba(255,255,255,0.7);
+    background: rgba(255, 255, 255, 0.7);
     display: inline-block;
     padding: 5px 10px;
     border-radius: 10px;
-
 }
 
 /* ===========================
-   RESPONSIVE (มือถือ/แท็บเล็ต)
+   RESPONSIVE (มือถือ)
    =========================== */
 
-/* Tablet */
-@media (max-width: 1024px) {
-    .banner {
-        width: 100%;
-        height: auto;
-    }
-
-    .banner img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-    }
-
-    .search-goods-box {
-        width: 100%;
-        max-width: 450px;
-    }
-}
+/* ❌ ลบ/ไม่ใช้ Tablet 1024 แล้ว เพราะมันทำให้ Desktop เพี้ยน */
+/* ถ้าจะใช้จริงให้ใช้ 900 หรือ 768 จะปลอดภัยกว่า */
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -254,11 +246,12 @@ aside {
     }
 
     main {
-        flex-direction: column; /* จากซ้าย-ขวา เป็นบน-ล่าง */
+        flex-direction: column;
     }
 
     aside {
         width: 100%;
+        flex-shrink: 1;
         border-right: none;
         border-bottom: 1px solid white;
         padding: 10px;
@@ -273,7 +266,7 @@ aside {
     }
 
     .search-goods {
-        flex-wrap: wrap;  /* ให้ขึ้นบรรทัดใหม่ได้ */
+        flex-wrap: wrap;
         margin-left: 0;
         justify-content: center;
     }
@@ -285,22 +278,15 @@ aside {
 
     .banner {
         width: 100%;
-        height: auto;
-    }
-
-    .banner img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
+        max-width: 100%;
     }
 
     .represent-good {
-        padding-right: 60px; /* ลดลงเพราะมือถือจอเล็ก */
+        padding-right: 60px;
     }
 
     .box {
-        width: 160px; /* การ์ดเล็กลง */
+        width: 160px;
     }
 
     .goods-picture {
