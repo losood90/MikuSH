@@ -1,0 +1,206 @@
+body {
+    font-family: monospace;
+    color: white;
+    background-color: #2596be;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #38bac0;
+    padding: 10px;
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.name-n-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.logo {
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 100px;
+    border: 3px solid white;
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.3);
+}
+
+.shop-name {
+    font-size: 20px;
+    margin-left: 15px;
+
+}
+
+.login-button {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.header-login {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.header-login:hover{
+    background: rgba(255,255,255,0.2);
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;   /* แทน height */
+}
+
+
+aside {
+    border-right: 1px solid white;
+    background-color: #056469;
+    width: auto;
+    padding-left: 15px;
+    padding-top: 15px;
+    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.5);
+
+}
+
+.menu-side-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.type-search {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.menu-ch {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.main-content {
+    padding: 10px;
+    background-color: #83dfe4;
+    width: 100%;
+}
+.banner {
+    background-color: #333;
+    width: 750px;
+    height: 300px;
+}
+
+.search-goods {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    align-items: center ;
+    gap: 7px;
+}
+
+.search-goods-box {
+    padding: 15px;
+    font-family: monospace;
+    background-color: #ebeaea; 
+    width: 400px;
+    height: 5px;
+}
+
+.represent-good{
+    display: flex;
+    margin-top: 20px;
+    gap: 12px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px;
+    padding-right: 120px; /* กันตัวสุดท้ายโดนตัด */
+    scroll-behavior: smooth;
+
+    scroll-snap-type: x mandatory;
+}
+
+.represent-good::after{
+    content: "";
+    flex: 0 0 120px; /* เว้นที่ท้ายแถบ */
+}
+
+
+
+.represent-good::-webkit-scrollbar {
+    height: 8px;
+}
+
+.represent-good::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.25);
+    border-radius: 10px;
+}
+
+
+
+.box {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(6px);
+
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.box:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.35);
+    border: 2px solid white;
+}
+
+
+.goods-picture {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.7);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+}
+
+
+.goods-name {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+
+.goods-price {
+    margin-top: 6px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #004c5a;
+    background: rgba(255,255,255,0.7);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
