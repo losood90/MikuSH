@@ -203,4 +203,141 @@ aside {
     display: inline-block;
     padding: 5px 10px;
     border-radius: 10px;
+
+}
+
+/* ===========================
+   RESPONSIVE (มือถือ/แท็บเล็ต)
+   =========================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .banner {
+        width: 100%;
+        height: auto;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    .search-goods-box {
+        width: 100%;
+        max-width: 450px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    header {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .name-n-logo {
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .logo {
+        width: 70px;
+    }
+
+    .login-button {
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    main {
+        flex-direction: column; /* จากซ้าย-ขวา เป็นบน-ล่าง */
+    }
+
+    aside {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid white;
+        padding: 10px;
+    }
+
+    .type-search {
+        justify-content: center;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .search-goods {
+        flex-wrap: wrap;  /* ให้ขึ้นบรรทัดใหม่ได้ */
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .search-goods-box {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .banner {
+        width: 100%;
+        height: auto;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    .represent-good {
+        padding-right: 60px; /* ลดลงเพราะมือถือจอเล็ก */
+    }
+
+    .box {
+        width: 160px; /* การ์ดเล็กลง */
+    }
+
+    .goods-picture {
+        height: 130px;
+    }
+
+    .goods-name {
+        font-size: 14px;
+    }
+
+    .goods-price {
+        font-size: 16px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .logo {
+        width: 60px;
+    }
+
+    .shop-name {
+        font-size: 18px;
+    }
+
+    .search-goods-box {
+        max-width: 260px;
+        padding: 12px;
+    }
+
+    .box {
+        width: 140px;
+        padding: 8px;
+    }
+
+    .goods-picture {
+        height: 110px;
+    }
 }
